@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     var contadorRonda: Int = 0
@@ -38,8 +41,17 @@ class MainActivity : AppCompatActivity() {
     private fun ejecutarSecuencia(){
         Log.i ("Estado" , "Empieza la partida")
 
+        val miTexto: TextView = findViewById(R.id.BOTONAMARILLO)
+        val botonamarillo = GlobalScope.launch(Dispatchers.Main){
+
+            suspendingTask(miTexto)
+        }
+
     }
 
+    private fun suspendingTask(miTexto: TextView) {
+        miTexto.text ="Aquí"
+    }
 
 
 }
