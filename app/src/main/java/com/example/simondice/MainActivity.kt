@@ -15,6 +15,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val azul: Button = findViewById(R.id.BOTONAZUL)
+        val amarillo: Button = findViewById(R.id.BOTONAMARILLO)
+        val verde : Button = findViewById(R.id.BOTONVERDE)
+        val rojo : Button = findViewById(R.id.botonrojo)
+        val Btnscolor = listOf(azul,amarillo,verde,rojo)
+
+        var job = GlobalScope.launch(Dispatchers.Main) {
+
+            suspendingTask()
+        }
+
         val botonjugar: Button = findViewById(R.id.botonjugar)
         botonjugar.setOnClickListener {
 
@@ -22,14 +33,15 @@ class MainActivity : AppCompatActivity() {
 
             Empezar()
 
-
-
-
-
-
         }
 
     }
+
+    private fun suspendingTask() {
+
+    }
+
+
     private fun Empezar(){
         Log.i ("Estado" , "Empieza la partida")
         val mostrarRonda: TextView = findViewById(R.id.cuadrotexto)
@@ -41,15 +53,51 @@ class MainActivity : AppCompatActivity() {
     private fun ejecutarSecuencia(){
         Log.i ("Estado" , "Empieza la partida")
 
-        val miTexto: TextView = findViewById(R.id.BOTONAMARILLO)
+        selectColor += (0..3) random()
+        for (i in roundCounter[i]) {
+            when (selectColor[1]){
+
+             0-> {
+                 job = GlobalScope.launch(Dispatchers.Main){
+                     suspendingTask()
+                 }
+             }
+             1-> {
+                 job = GlobalScope.launch(Dispatchers.Main){
+                        suspendingTask()
+                 }
+                }
+             2-> {
+                  job = GlobalScope.launch(Dispatchers.Main){
+                        suspendingTask()
+                    }
+                }
+
+             3-> {
+                  job = GlobalScope.launch(Dispatchers.Main){
+                        suspendingTask()
+                    }
+                }
+
+            }
+
+        }
+
+
+
+
+        /*val miTexto: TextView = findViewById(R.id.BOTONAMARILLO)
         val botonamarillo = GlobalScope.launch(Dispatchers.Main){
 
             suspendingTask(miTexto)
-        }
-
+}
+*/
     }
 
-    private fun suspendingTask(miTexto: TextView) {
+
+
+
+private fun suspendingTask(miTexto: TextView) {
         miTexto.text ="Aquí"
     }
 
