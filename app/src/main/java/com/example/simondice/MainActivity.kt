@@ -12,7 +12,7 @@ import android.widget.Toast
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
-    var contadorRonda = 1
+     var contadorRonda = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
