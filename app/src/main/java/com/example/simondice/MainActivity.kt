@@ -12,48 +12,29 @@ import android.widget.Toast
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
-    var contadorRonda: Int = 0
-    var juego = ArrayList<Int>()
-    var jugador = ArrayList<Int>()
-    var finalizado = false
-    val jugar = findViewById<Button>(R.id.botonjugar)
-    val comprobarSecuencia = findViewById<Button>(R.id.comprobar)
-    var random = (1..4).random()
-    var secuencia: Array<Int> = arrayOf(random)
-    val toast3 = Toast.makeText(applicationContext, "Repite la secuencia", Toast.LENGTH_SHORT)
-    val bot: Button = findViewById(R.id.botonjugar)
-
-
+    var contadorRonda = 1
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val azul: Button = findViewById(R.id.BOTONAZUL)
-        val amarillo: Button = findViewById(R.id.BOTONAMARILLO)
-        val verde: Button = findViewById(R.id.BOTONVERDE)
-        val rojo: Button = findViewById(R.id.BOTONROJO)
-        val Btnscolor = listOf(azul, amarillo, verde, rojo)
-
-        var job = GlobalScope.launch(Dispatchers.Main) {
-
-            suspendingTask()
-        }
-
-        val botonjugar: Button = findViewById(R.id.botonjugar)
-        botonjugar.setOnClickListener {
-
-            Log.i("Estado", "Empieza la partida")
-
-            Empezar()
-
-        }
-
-    }
-
-    private fun suspendingTask() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+            var game = ArrayList<Int>()
+            var jugador = ArrayList<Int>()
+            val bot: Button = findViewById(R.id.botonjugar)
+            val empezar = findViewById<Button>(R.id.botonjugar)
+            var finalizado = false
+            val comprobar = findViewById<Button>(R.id.comprobar)
+            val verde = findViewById<Button>(R.id.BOTONVERDE)
+            val azul = findViewById<Button>(R.id.BOTONAZUL)
+            val amarillo = findViewById<Button>(R.id.BOTONAMARILLO)
+            val rojo = findViewById<Button>(R.id.BOTONROJO)
+            val listaBotones = listOf(verde, azul, amarillo, rojo)
+            val toast = Toast.makeText(applicationContext, "A llorar con mama", Toast.LENGTH_SHORT)
+            val toast3 = Toast.makeText(applicationContext, "Ya sabes que hacer", Toast.LENGTH_SHORT)
 
 
-    }
+
+
+
 
 
     private fun Empezar() {
@@ -119,7 +100,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
-
