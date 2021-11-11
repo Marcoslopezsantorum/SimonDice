@@ -78,7 +78,6 @@ class MainActivity : AppCompatActivity() {
             añadirSecuenciaUsuario(jugador, 4)
         }
 
-
     }
 
     fun añadirSecuencia(sec: MutableList<Int>) {
